@@ -1,0 +1,13 @@
+IfModule mod_mime.c
+  AddEncoding br .br
+  AddEncoding gzip .gz
+IfModule
+
+IfModule mod_headers.c
+  FilesMatch .js.br$
+    Header set Content-Encoding br
+  FilesMatch
+  FilesMatch .js.gz$
+    Header set Content-Encoding gzip
+  FilesMatch
+IfModule
